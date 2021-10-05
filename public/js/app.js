@@ -2288,7 +2288,6 @@ __webpack_require__.r(__webpack_exports__);
     getEvent: function getEvent() {
       var _this2 = this;
 
-      this.events = [];
       this.loading = true;
       axios__WEBPACK_IMPORTED_MODULE_1___default().get('http://127.0.0.1:8000/api/events').then(function (res) {
         _this2.form = res.data;
@@ -2300,6 +2299,7 @@ __webpack_require__.r(__webpack_exports__);
 
         _this2.form.days = JSON.parse(res.data.days);
         console.log(_this2.form);
+        _this2.events = [];
 
         _this2.enumerateDaysBetweenDates(_this2.form.start, _this2.form.end);
 

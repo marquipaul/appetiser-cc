@@ -208,7 +208,6 @@ export default {
       }
     },
     getEvent () {
-      this.events = []
       this.loading = true
       axios.get('http://127.0.0.1:8000/api/events')
         .then(res => {
@@ -218,6 +217,7 @@ export default {
           this.form.dates.push(res.data.end)
           this.form.days = JSON.parse(res.data.days)
           console.log(this.form)
+          this.events = []
           this.enumerateDaysBetweenDates(this.form.start, this.form.end)
           this.loading = false
         })
